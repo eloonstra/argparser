@@ -12,7 +12,7 @@ An opinionated argument parser for Go.
 Import the package into your project.
 
 ```go
-import "github.com/eloonstra/argparser"
+import "github.com/eloonstra/argparser/pkg/arguments"
 ```
 
 Grab the arguments from the command line.
