@@ -18,7 +18,7 @@ import "github.com/eloonstra/argparser/pkg/arguments"
 Grab the arguments from the command line.
 
 ```go
-args := argparser.Grab()
+args := arguments.Grab()
 ```
 Now you can check whether an argument is present.
 
