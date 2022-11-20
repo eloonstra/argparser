@@ -17,13 +17,13 @@ func Grab() (result *parsedArgs) {
 	result = &parsedArgs{}
 
 	var parameterIndex int
-	result.arguments, parameterIndex = fetchArguments()
-	result.parameters = fetchParameters(parameterIndex)
+	result.arguments, parameterIndex = fetchArgs()
+	result.parameters = fetchParams(parameterIndex)
 	return
 }
 
-// fetchArguments fetches the arguments from the command line.
-func fetchArguments() (result map[string]any, parameterIndex int) {
+// fetchArgs fetches the arguments from the command line.
+func fetchArgs() (result map[string]any, parameterIndex int) {
 	for index, value := range os.Args[1:] {
 		if strings.HasPrefix(value, "-") {
 			parameterIndex = index + 1
@@ -34,8 +34,8 @@ func fetchArguments() (result map[string]any, parameterIndex int) {
 	return
 }
 
-// fetchParameters fetches the parameters from the command line.
-func fetchParameters(startIndex int) (result map[string]*string) {
+// fetchParams fetches the parameters from the command line.
+func fetchParams(startIndex int) (result map[string]*string) {
 	result = make(map[string]*string)
 	for index := startIndex; index < len(os.Args); index++ {
 		isParameter := strings.HasPrefix(os.Args[index], "-")
@@ -77,14 +77,14 @@ func fetchParameters(startIndex int) (result map[string]*string) {
 	return
 }
 
-// HasParameter checks if the parameter exists.
-func (p *parsedArgs) HasParameter(parameter string) bool {
+// HasParam checks if the parameter exists.
+func (p *parsedArgs) HasParam(parameter string) bool {
 	_, ok := p.parameters[parameter]
 	return ok
 }
 
-// GetParameterValue gets the value of the parameter.
-func (p *parsedArgs) GetParameterValue(parameter string) (string, error) {
+// GetParamValue gets the value of the parameter.
+func (p *parsedArgs) GetParamValue(parameter string) (string, error) {
 	value, ok := p.parameters[parameter]
 	if !ok {
 		return "", fmt.Errorf("parameter '%s' not found", parameter)
@@ -95,8 +95,8 @@ func (p *parsedArgs) GetParameterValue(parameter string) (string, error) {
 	return *value, nil
 }
 
-// HasArgument checks if the argument exists.
-func (p *parsedArgs) HasArgument(argument string) (ok bool) {
+// HasArg checks if the argument exists.
+func (p *parsedArgs) HasArg(argument string) (ok bool) {
 	_, ok = p.arguments[argument]
 	return
 }
