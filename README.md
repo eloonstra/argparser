@@ -12,19 +12,19 @@ An opinionated argument parser for Go.
 Import the package into your project.
 
 ```go
-import "github.com/eloonstra/argparser/pkg/arguments"
+import "github.com/eloonstra/argparser"
 ```
 
 Grab the arguments from the command line.
 
 ```go
-args := arguments.Grab()
+args := argparser.Parse()
 ```
 Now you can check whether an argument is present.
 
 ```go
 if args.HasParam("foo") {
-// do something
+    // do something
 }
 ```
 
@@ -32,8 +32,8 @@ You can also check for parameters (including finding out their value) as follows
 
 ```go
 if args.HasParam("foo") {
-value, err := args.GetParamValue("foo")
-// do something
+    value, err := args.GetParamValue("foo")
+    // do something
 }
 ```
 

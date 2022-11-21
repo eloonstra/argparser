@@ -1,4 +1,4 @@
-package arguments
+package argparser
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ type parsedArgs struct {
 	parameters map[string]*string
 }
 
-// Grab grabs the arguments and parameters from the command line.
-func Grab() (result *parsedArgs) {
+// Parse grabs the arguments and parameters from the command line.
+func Parse() (result *parsedArgs) {
 	result = &parsedArgs{}
 
 	var parameterIndex int
