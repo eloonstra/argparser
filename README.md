@@ -41,4 +41,4 @@ That's it! All the other stuff is handled for you.
 
 ## License
 
-[WTFL](LICENSE)
+[MIT](LICENSE)
