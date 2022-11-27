@@ -9,6 +9,9 @@ An opinionated argument parser for Go.
 
 ## Usage
 
+This package allows for understanding the following command line arguments format.
+`command [arguments] [parameters]` i.e.: `command do --something`
+
 Import the package into your project.
 
 ```go
@@ -23,7 +26,7 @@ args := argparser.Parse()
 Now you can check whether an argument is present.
 
 ```go
-if args.HasParam("foo") {
+if args.HasArg("foo") {
     // do something
 }
 ```
