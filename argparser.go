@@ -8,7 +8,7 @@ import (
 
 // parsedArgs holds the parsedArgs arguments and parameters.
 type parsedArgs struct {
-	arguments  map[string]any
+	arguments  map[string]interface{}
 	parameters map[string]*string
 }
 
@@ -23,7 +23,8 @@ func Parse() (result *parsedArgs) {
 }
 
 // fetchArgs fetches the arguments from the command line.
-func fetchArgs() (result map[string]any, parameterIndex int) {
+func fetchArgs() (result map[string]interface{}, parameterIndex int) {
+	result = make(map[string]interface{})
 	for index, value := range os.Args[1:] {
 		if strings.HasPrefix(value, "-") {
 			parameterIndex = index + 1
